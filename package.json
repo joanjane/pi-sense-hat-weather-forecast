@@ -1,0 +1,26 @@
+{
+  "name": "pi-sense-hat-weather-forecast",
+  "version": "1.0.0",
+  "description": "Weather forecast displaying results on raspberry pi sense-hat",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joanjane/pi-sense-hat-weather-forecast.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joanjane/pi-sense-hat-weather-forecast/issues"
+  },
+  "homepage": "https://github.com/joanjane/pi-sense-hat-weather-forecast#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "sense-hat-led": "1.0.1"
+  }
+}

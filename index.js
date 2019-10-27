@@ -45,8 +45,13 @@ function presentWeather(forecast, index) {
         [0, 0, 255],
         [40, 150, 90],
     ];
+    
     const color = colors[index];
-    const message = `${next.temp}T / ${next.weather.name} / ${next.date.toLocaleTimeString()}`;
+    const timePart = formatTime(next.date);
+    const datePart = isToday(next.date) ? '' :
+        `+${dayOffset(next.date)}d `;
+
+    const message = `T${next.temp}C / ${next.weather.name} / ${datePart}${timePart}`;
     console.log(`Rendering "${message}"`);
     sense.showMessage(message, 0.2, color, () => {
         setTimeout(() => {
@@ -83,3 +88,22 @@ function getWeather(lat, long, apiKey) {
   });
 }
 
+function formatTime(date) {
+    return date.getHours() > 12 ?
+        `${(date.getHours() -12)}PM` : 
+        `${date.getHours()}AM`
+}
+
+function isToday(date) {
+    const now = new Date();
+    return date.getFullYear() === now.getFullYear()
+        && date.getMonth() === now.getMonth()
+        && date.getDate() === now.getDate();
+}
+
+function dayOffset(date) {
+    const now = new Date();
+    const diffTime = Math.abs(now - date);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+    return diffDays -1;
+}

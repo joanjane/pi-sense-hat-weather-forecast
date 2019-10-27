@@ -1,7 +1,7 @@
 class FakeSense {
-    showMessage(message, color, done) {
+    showMessage(message, speed, color, done) {
         console.log(message);
-        done();
+        done && done();
     }
 }
 

@@ -26,7 +26,7 @@ setInterval(() => {
 
 setInterval(() => {
     render();
-}, 1000 * 60 * 2) // 2min
+}, 1000 * 60 * 4) // 2min
 
 weatherPolling();
 render();

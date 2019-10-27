@@ -48,7 +48,7 @@ function presentWeather(forecast, index) {
     const color = colors[index];
     const message = `${next.temp}º / ${next.weather.name} / ${next.date.toLocaleString()}`;
     console.log(`Rendering "${message}"`);
-    sense.showMessage(message, color, () => {
+    sense.showMessage(message, 0.2, color, () => {
         return presentWeather(forecast, index + 1);
     });
 }

@@ -34,6 +34,7 @@ render();
 function presentWeather(forecast, index) {
     index = index || 0;
     if (index === forecast.length) {
+        sense.clear();
         return;
     }
     
@@ -48,8 +49,10 @@ function presentWeather(forecast, index) {
     
     const color = colors[index];
     const timePart = formatTime(next.date);
-    const datePart = isToday(next.date) ? '' :
-        `+${dayOffset(next.date)}d `;
+    let datePart = `+${dayOffset(next.date)}d `;
+    if (datePart === '+0d ') {
+        datePart = '';
+    }
 
     const message = `T${next.temp}C / ${next.weather.name} / ${datePart}${timePart}`;
     console.log(`Rendering "${message}"`);
@@ -92,13 +95,6 @@ function formatTime(date) {
     return date.getHours() > 12 ?
         `${(date.getHours() -12)}PM` : 
         `${date.getHours()}AM`
-}
-
-function isToday(date) {
-    const now = new Date();
-    return date.getFullYear() === now.getFullYear()
-        && date.getMonth() === now.getMonth()
-        && date.getDate() === now.getDate();
 }
 
 function dayOffset(date) {

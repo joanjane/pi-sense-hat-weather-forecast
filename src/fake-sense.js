@@ -3,6 +3,10 @@ class FakeSense {
         console.log(message);
         done && done();
     }
+
+    clear() {
+        
+    }
 }
 
 module.exports = new FakeSense();

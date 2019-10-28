@@ -80,7 +80,7 @@ function getWeather(lat, long, apiKey) {
             date.setUTCSeconds(data.dt);
     
             return {
-                temp: data.main.temp,
+                temp: Math.round(data.main.temp),
                 weather: {
                     name: data.weather[0].main
                 },

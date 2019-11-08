@@ -4,7 +4,8 @@
   "description": "Weather forecast displaying results on raspberry pi sense-hat",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "server": "node node_modules/pi-sense-hat-remote-simulator/cjs/scripts/run-server.js 8080"
   },
   "repository": {
     "type": "git",
@@ -18,9 +19,10 @@
   "homepage": "https://github.com/joanjane/pi-sense-hat-weather-forecast#readme",
   "dependencies": {
     "dotenv": "^8.2.0",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.0",
+    "pi-sense-hat-remote-simulator": "git+https://github.com/joanjane/pi-sense-hat-remote-simulator.git"
   },
   "devDependencies": {
-    "sense-hat-led": "1.0.1"
+    "pi-sense-hat-library": "git+https://github.com/joanjane/pi-sense-hat-library.git"
   }
 }
